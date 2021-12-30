@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { lazy, Suspense } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Layout, RequireAuth } from './components'
+import NoMatch from './components/NoMatch'
+import ThemedSuspenseFallback from './components/ThemedSuspenseFallback'
+import { LogoutPage } from './pages'
+
+const LoginPage = lazy(() => import('./pages/Login'))
+const OverviewPage = lazy(() => import('./pages/Dashboard/Overview'))
+const OrderPage = lazy(() => import('./pages/Dashboard/Order'))
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Suspense fallback={<ThemedSuspenseFallback />}>
+        <Routes>
+          <Route path="/">
+            <Route index element={<LoginPage />} />
+            <Route
+              path="dashboard/*"
+              element={
+                <RequireAuth>
+                  <Layout />
+                </RequireAuth>
+              }
+            >
+              <Route index element={<OverviewPage />} />
+              <Route path="order" element={<OrderPage />} />
+            </Route>
+            <Route path="logout" element={<LogoutPage />} />
+            <Route path="*" element={<NoMatch />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
