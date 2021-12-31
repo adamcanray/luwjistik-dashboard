@@ -12,6 +12,7 @@ import {
 import {
   HiOutlinePresentationChartBar,
   HiOutlineCollection,
+  HiOutlineUserGroup,
 } from 'react-icons/hi'
 import { CustomSidebarLink } from '../..'
 
@@ -52,7 +53,7 @@ const Sidebar = () => {
               <Text>Orders</Text>
             </CustomSidebarLink>
             <CustomSidebarLink to={{ pathname: `/dashboard/users` }}>
-              <Icon as={HiOutlineCollection} marginRight="2" />
+              <Icon as={HiOutlineUserGroup} marginRight="2" />
               <Text>Users</Text>
             </CustomSidebarLink>
           </VStack>
