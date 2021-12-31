@@ -37,7 +37,7 @@ const Navbar = () => {
             colorScheme="sky"
             borderRadius="full"
           >
-            <Icon as={HiOutlineUserCircle} w={10} h={10} color="gray.500" />
+            <Icon as={HiOutlineUserCircle} w={10} h={10} color="sky.500" />
           </MenuButton>
           <MenuList>
             <MenuGroup title="Profile">

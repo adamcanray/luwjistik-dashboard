@@ -27,8 +27,6 @@ export function* loginSubmit(
 
     yield* putTS(login_action.loginFlowSuccessSetter(true))
 
-    yield* putTS(login_action.loginFlowFailureSetter(false))
-
     const session = yield* selectTS(
       login_selector.loginResponseSuccessDataSessionSelector
     )
@@ -39,10 +37,10 @@ export function* loginSubmit(
   } else {
     yield* putTS(login_action.loginResponseFailureSetter(err.response.data))
 
-    yield* putTS(login_action.loginFlowSuccessSetter(false))
-
     yield* putTS(login_action.loginFlowFailureSetter(true))
   }
 
   yield* putTS(login_action.loginFlowRequestSetter(false))
+  yield* putTS(login_action.loginFlowSuccessSetter(false))
+  yield* putTS(login_action.loginFlowFailureSetter(false))
 }

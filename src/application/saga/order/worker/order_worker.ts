@@ -29,7 +29,7 @@ export function* orderListWorker() {
 export function* orderCreateWorker(
   action: ReturnType<typeof order_action.orderCreate>
 ) {
-  yield* putTS(order_action.orderListFlowRequestSetter(true))
+  yield* putTS(order_action.orderCreateFlowRequestSetter(true))
 
   const { res, err } = yield* callTS(
     rest.order.order_res.RestOrderCreate,
@@ -37,14 +37,18 @@ export function* orderCreateWorker(
   )
 
   if (res) {
-    yield* putTS(order_action.orderListResponseSuccessSetter(res.data))
-    yield* putTS(order_action.orderListFlowSuccessSetter(true))
-    yield* putTS(order_action.orderListFlowFailureSetter(false))
+    yield* putTS(order_action.orderCreateResponseSuccessSetter(res.data))
+    yield* putTS(order_action.orderCreateFlowSuccessSetter(true))
   } else {
-    yield* putTS(order_action.orderListResponseFailureSetter(err.response.data))
-    yield* putTS(order_action.orderListFlowSuccessSetter(false))
-    yield* putTS(order_action.orderListFlowFailureSetter(true))
+    yield* putTS(
+      order_action.orderCreateResponseFailureSetter(err.response.data)
+    )
+    yield* putTS(order_action.orderCreateFlowFailureSetter(true))
   }
 
-  yield* putTS(order_action.orderListFlowRequestSetter(false))
+  yield* putTS(order_action.orderCreateFlowRequestSetter(false))
+  yield* putTS(order_action.orderCreateFlowSuccessSetter(false))
+  yield* putTS(order_action.orderCreateFlowFailureSetter(false))
+
+  yield* putTS(order_action.orderList())
 }

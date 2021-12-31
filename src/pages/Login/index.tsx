@@ -41,7 +41,7 @@ const LoginPage = (): JSX.Element => {
     if (loginFlowSuccess) {
       navigate('/dashboard', { replace: true })
     }
-  }, [loginFlowSuccess]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [navigate, loginFlowSuccess])
 
   return (
     <Box display="flex" justifyContent="center" alignItems="center">

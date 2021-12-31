@@ -8,6 +8,7 @@ import { LogoutPage } from './pages'
 const LoginPage = lazy(() => import('./pages/Login'))
 const OverviewPage = lazy(() => import('./pages/Dashboard/Overview'))
 const OrderPage = lazy(() => import('./pages/Dashboard/Order'))
+const DashboardNoMatchPage = lazy(() => import('./pages/Dashboard/NoMatch'))
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             >
               <Route index element={<OverviewPage />} />
               <Route path="order" element={<OrderPage />} />
+              <Route path="*" element={<DashboardNoMatchPage />} />
             </Route>
             <Route path="logout" element={<LogoutPage />} />
             <Route path="*" element={<NoMatch />} />

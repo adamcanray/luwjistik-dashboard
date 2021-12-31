@@ -63,6 +63,7 @@ const Sidebar = () => {
             Section
           </Text>
           <Accordion
+            marginTop="2"
             defaultIndex={[0]}
             allowMultiple
             _last={{ borderColor: 'transparent' }}
@@ -73,15 +74,13 @@ const Sidebar = () => {
                 _hover={{ backgroundColor: 'sky.400' }}
               >
                 <Box flex="1" textAlign="left" color="white">
-                  Section 1 title
+                  Attention
                 </Box>
                 <AccordionIcon color="white" />
               </AccordionButton>
               <AccordionPanel pb={4} color="white" fontWeight="light">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                This application does not yet have a responsive layout, features
+                and infrastructure first
               </AccordionPanel>
             </AccordionItem>
 
