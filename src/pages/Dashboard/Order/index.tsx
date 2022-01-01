@@ -864,6 +864,20 @@ const OrderPage = (): JSX.Element => {
           columns={columns}
           renderRowSubComponent={renderRowSubComponent}
         />
+        {orderListFlowSuccess && orderListResponseSuccess.data.length && (
+          <Box display="flex" justifyContent="center" paddingY="2">
+            <Text color="gray.700" fontSize="sm">
+              data is empty. try to create new order.
+            </Text>
+          </Box>
+        )}
+        {orderListFlowFailure && (
+          <Box display="flex" justifyContent="center" paddingY="2">
+            <Text color="red.500" fontSize="sm">
+              {`${orderListResponseFailure.status} - ${orderListResponseFailure.message}`}
+            </Text>
+          </Box>
+        )}
       </Stack>
     </Stack>
   )
