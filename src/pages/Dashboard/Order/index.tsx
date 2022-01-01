@@ -864,7 +864,7 @@ const OrderPage = (): JSX.Element => {
           columns={columns}
           renderRowSubComponent={renderRowSubComponent}
         />
-        {orderListFlowSuccess && orderListResponseSuccess.data.length && (
+        {orderListFlowSuccess && orderListResponseSuccess.data.length === 0 && (
           <Box display="flex" justifyContent="center" paddingY="2">
             <Text color="gray.700" fontSize="sm">
               data is empty. try to create new order.
