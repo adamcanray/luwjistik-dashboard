@@ -11,6 +11,7 @@ import {
   InputGroup,
   InputLeftElement,
   Stack,
+  Text,
 } from '@chakra-ui/react'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -44,9 +45,14 @@ const LoginPage = (): JSX.Element => {
   }, [navigate, loginFlowSuccess])
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center">
+    <Box
+      className="bg-login"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+    >
       <Box
-        marginTop="20"
+        // marginTop="20"
         maxW="lg"
         borderRadius="lg"
         boxShadow="lg"
@@ -54,6 +60,13 @@ const LoginPage = (): JSX.Element => {
         paddingY="4"
         backgroundColor="white"
       >
+        <Text fontSize="x-large" fontWeight="semibold" textAlign="center">
+          Login to Luwjistik Dashboard
+        </Text>
+        <Alert status="info" marginY="4">
+          <AlertIcon />
+          The password field is auto-generate to valid md5.
+        </Alert>
         <Box as="form" onSubmit={handleSubmit(onSubmitLogin)}>
           <Stack spacing={4}>
             <FormControl>

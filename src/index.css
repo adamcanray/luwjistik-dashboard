@@ -3,6 +3,85 @@
 @tailwind utilities;
 
 @layer components {
+  .bg-login {
+    @apply min-h-screen bg-gradient-to-br from-cyan-500 via-violet-500 to-amber-500;
+    background-size: 500% 500%;
+
+    -webkit-animation: AnimationBGLogin 12s ease infinite;
+    -moz-animation: AnimationBGLogin 12s ease infinite;
+    -o-animation: AnimationBGLogin 12s ease infinite;
+    animation: AnimationBGLogin 12s ease infinite;
+  }
+
+  @-webkit-keyframes AnimationBGLogin {
+    0% {
+      background-position: 0% 35%;
+    }
+    25% {
+      background-position: 20% 55%;
+    }
+    50% {
+      background-position: 100% 66%;
+    }
+    74% {
+      background-position: 20% 55%;
+    }
+    100% {
+      background-position: 0% 35%;
+    }
+  }
+  @-moz-keyframes AnimationBGLogin {
+    0% {
+      background-position: 0% 35%;
+    }
+    25% {
+      background-position: 20% 55%;
+    }
+    50% {
+      background-position: 100% 66%;
+    }
+    74% {
+      background-position: 20% 55%;
+    }
+    100% {
+      background-position: 0% 35%;
+    }
+  }
+  @-o-keyframes AnimationBGLogin {
+    0% {
+      background-position: 0% 35%;
+    }
+    25% {
+      background-position: 20% 55%;
+    }
+    50% {
+      background-position: 100% 66%;
+    }
+    74% {
+      background-position: 20% 55%;
+    }
+    100% {
+      background-position: 0% 35%;
+    }
+  }
+  @keyframes AnimationBGLogin {
+    0% {
+      background-position: 0% 35%;
+    }
+    25% {
+      background-position: 20% 55%;
+    }
+    50% {
+      background-position: 100% 66%;
+    }
+    74% {
+      background-position: 20% 55%;
+    }
+    100% {
+      background-position: 0% 35%;
+    }
+  }
+
   .report-card .footer,
   .report-card .card {
     @apply transition-all ease-in-out duration-300;
