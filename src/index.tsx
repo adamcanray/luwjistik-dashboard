@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { WrapperApp } from './components'
+import './index.css'
 
 ReactDOM.render(
   <WrapperApp>

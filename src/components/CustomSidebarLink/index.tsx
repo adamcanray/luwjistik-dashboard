@@ -15,11 +15,12 @@ const CustomSidebarLink = ({ children, to, ...props }: LinkProps) => {
       paddingY="2"
       roundedTopRight="lg"
       roundedBottomRight="lg"
-      color="white"
+      color="gray.700"
       display="inline-flex"
       alignItems="center"
-      backgroundColor={match ? 'sky.400' : 'transparent'}
-      _hover={{ backgroundColor: 'sky.400' }}
+      borderLeft="4px"
+      borderColor={match ? 'sky.400' : 'transparent'}
+      _hover={{ backgroundColor: 'gray.100' }}
       _focus={{ outline: '0' }}
     >
       {children}

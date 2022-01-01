@@ -23,7 +23,7 @@ const Navbar = () => {
       paddingY="2"
       alignItems="center"
       borderBottomWidth="1px"
-      borderBottomColor="sky.500"
+      borderBottomColor="gray.300"
     >
       <Box>
         <Heading size="md">Luwjistik App</Heading>

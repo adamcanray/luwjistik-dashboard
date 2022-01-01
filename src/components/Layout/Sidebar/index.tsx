@@ -26,14 +26,17 @@ const Sidebar = () => {
       width={{ base: '0', md: '60' }}
       paddingX=""
       paddingY="6"
-      backgroundColor="sky.500"
+      // backgroundColor="sky.500"
+      borderRight="1px"
+      borderColor="gray.300"
+      backgroundColor="white"
     >
-      <Text paddingX="4" fontSize="2xl" color="white" fontWeight="semibold">
+      <Text paddingX="4" fontSize="2xl" color="gray.700" fontWeight="semibold">
         Luwjistik App
       </Text>
       <Box marginTop="8" experimental_spaceY="2">
         <Box>
-          <Text paddingX="4" fontSize="lg" color="white" fontWeight="medium">
+          <Text paddingX="4" fontSize="lg" color="gray.700" fontWeight="medium">
             Dashboard
           </Text>
           <VStack marginTop="2" spacing="0" align="stretch">
@@ -44,7 +47,7 @@ const Sidebar = () => {
           </VStack>
         </Box>
         <Box>
-          <Text paddingX="4" fontSize="lg" color="white" fontWeight="medium">
+          <Text paddingX="4" fontSize="lg" color="gray.700" fontWeight="medium">
             Tables
           </Text>
           <VStack marginTop="2" spacing="0" align="stretch">
@@ -59,7 +62,7 @@ const Sidebar = () => {
           </VStack>
         </Box>
         <Box>
-          <Text paddingX="4" fontSize="lg" color="white" fontWeight="medium">
+          <Text paddingX="4" fontSize="lg" color="gray.700" fontWeight="medium">
             Section
           </Text>
           <Accordion
@@ -71,14 +74,14 @@ const Sidebar = () => {
             <AccordionItem borderWidth="0">
               <AccordionButton
                 _focus={{ outline: '0' }}
-                _hover={{ backgroundColor: 'sky.400' }}
+                _hover={{ backgroundColor: 'gray.100' }}
               >
-                <Box flex="1" textAlign="left" color="white">
+                <Box flex="1" textAlign="left" color="gray.700">
                   Attention
                 </Box>
-                <AccordionIcon color="white" />
+                <AccordionIcon color="gray.700" />
               </AccordionButton>
-              <AccordionPanel pb={4} color="white" fontWeight="light">
+              <AccordionPanel pb={4} color="gray.700" fontWeight="light">
                 This application does not yet have a responsive layout, features
                 and infrastructure first
               </AccordionPanel>
@@ -87,14 +90,14 @@ const Sidebar = () => {
             <AccordionItem borderWidth="0">
               <AccordionButton
                 _focus={{ outline: '0' }}
-                _hover={{ backgroundColor: 'sky.400' }}
+                _hover={{ backgroundColor: 'gray.100' }}
               >
-                <Box flex="1" textAlign="left" color="white">
+                <Box flex="1" textAlign="left" color="gray.700">
                   Section 2 title
                 </Box>
-                <AccordionIcon color="white" />
+                <AccordionIcon color="gray.700" />
               </AccordionButton>
-              <AccordionPanel pb={4} color="white" fontWeight="light">
+              <AccordionPanel pb={4} color="gray.700" fontWeight="light">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
