@@ -5,6 +5,12 @@ import {
   AccordionItem,
   AccordionPanel,
   Box,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
   Icon,
   Text,
   VStack,
@@ -15,21 +21,12 @@ import {
   HiOutlineUserGroup,
 } from 'react-icons/hi'
 import { CustomSidebarLink } from '../..'
+import { layout_action } from '../../../application/saga/layout'
+import { useAppDispatch, useAppSelector } from '../../../application/store'
 
-const Sidebar = () => {
+const SidebarContents = () => {
   return (
-    <Box
-      position="absolute"
-      overflowY="auto"
-      minHeight="full"
-      maxHeight="full"
-      width={{ base: '0', md: '60' }}
-      paddingX=""
-      paddingY="6"
-      borderRight="1px"
-      borderColor="gray.300"
-      backgroundColor="white"
-    >
+    <>
       <Text paddingX="4" fontSize="2xl" color="gray.700" fontWeight="semibold">
         Luwjistik App
       </Text>
@@ -106,6 +103,45 @@ const Sidebar = () => {
           </Accordion>
         </Box>
       </Box>
+    </>
+  )
+}
+
+const Sidebar = () => {
+  const dispatch = useAppDispatch()
+  const sidebarIsOpen = useAppSelector((state) => state.layout.sidebar.isOpen)
+  return (
+    <Box zIndex="10">
+      <Box
+        position="absolute"
+        overflowY="auto"
+        minHeight="full"
+        maxHeight="full"
+        width={{ base: '0', md: '60' }}
+        display={{ base: 'none', md: 'block' }}
+        paddingX=""
+        paddingY="6"
+        borderRight="1px"
+        borderColor="gray.300"
+        backgroundColor="white"
+      >
+        <SidebarContents />
+      </Box>
+      <Drawer
+        isOpen={sidebarIsOpen}
+        placement="left"
+        onClose={() => dispatch(layout_action.sidebarOnClose())}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>Create your account</DrawerHeader>
+
+          <DrawerBody>
+            <SidebarContents />
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
     </Box>
   )
 }

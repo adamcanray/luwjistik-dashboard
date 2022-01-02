@@ -19,7 +19,7 @@ const DashboardOverviewPage = () => {
   )
   return (
     <div className="py-6 px-4 grid gap-6">
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
         <div className="report-card">
           <div className="card">
             <div className="card-body flex flex-col">
@@ -200,8 +200,8 @@ const DashboardOverviewPage = () => {
                     <ChatIcon />
                   </div>
                   <div>
-                    <p className="text-lg font-medium">NIK</p>
-                    <p className="text-gray_monkey-300">ok </p>
+                    <p className="text-lg font-medium">Nomor Induk</p>
+                    <p className="text-gray_monkey-300">300292983837222 </p>
                   </div>
                 </li>
                 <li className="flex items-center flex-col md:flex-row text-center md:text-left">

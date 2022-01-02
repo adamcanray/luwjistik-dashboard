@@ -6,7 +6,7 @@ const Layout = () => {
   return (
     <Flex minHeight="100vh">
       <Sidebar />
-      <Box flex="1">
+      <Box width="100%">
         <Navbar />
         <Box marginLeft={{ base: '0', md: '60' }}>
           <Container maxW="container.xl">

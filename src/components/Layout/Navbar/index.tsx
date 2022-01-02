@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Flex,
-  Heading,
   Icon,
   IconButton,
   Menu,
@@ -15,9 +14,12 @@ import {
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { HiOutlineUserCircle, HiOutlineLogout } from 'react-icons/hi'
-import { useAppSelector } from '../../../application/store'
+import { useAppDispatch, useAppSelector } from '../../../application/store'
+import { HamburgerIcon } from '@chakra-ui/icons'
+import { layout_action } from '../../../application/saga/layout'
 
 const Navbar = () => {
+  const dispatch = useAppDispatch()
   const themeCurrentColorVariant = useAppSelector(
     (state) => state.color_variant.currentColorVariant
   )
@@ -29,8 +31,12 @@ const Navbar = () => {
       borderBottomWidth="1px"
       borderBottomColor="gray.300"
     >
-      <Box>
-        <Heading size="md">Luwjistik App</Heading>
+      <Box display={{ base: 'block', md: 'none' }}>
+        <IconButton
+          onClick={() => dispatch(layout_action.sidebarOnOpen())}
+          aria-label="Search database"
+          icon={<HamburgerIcon />}
+        />
       </Box>
       <Spacer />
       <Box>
