@@ -2,13 +2,13 @@ import { SettingsIcon } from '@chakra-ui/icons'
 import {
   Box,
   Button,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
   useDisclosure,
 } from '@chakra-ui/react'
 import { color_variant_action } from '../../application/saga/theme'
@@ -26,17 +26,21 @@ const ColorVariantPicker = () => {
       <Button
         onClick={onOpen}
         colorScheme={themeCurrentColorVariant}
-        shadow="lg"
+        boxShadow="xl"
+        borderRadius="full"
+        padding="2"
+        size="lg"
       >
         <SettingsIcon />
       </Button>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Choose Color Variant</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>Choose Color Variant</DrawerHeader>
+
+          <DrawerBody>
             <Box>
               {colorVariantMap().map((e, i) => (
                 <Button
@@ -57,12 +61,20 @@ const ColorVariantPicker = () => {
                 ></Button>
               ))}
             </Box>
-          </ModalBody>
-          <ModalFooter>
-            <Button onClick={onClose}>Close</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+          </DrawerBody>
+
+          <DrawerFooter>
+            <Button
+              variant="outline"
+              mr={3}
+              onClick={onClose}
+              colorScheme={themeCurrentColorVariant}
+            >
+              Cancel
+            </Button>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
     </Box>
   )
 }
