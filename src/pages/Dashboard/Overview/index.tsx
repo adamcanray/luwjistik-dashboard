@@ -10,8 +10,13 @@ import {
   QuestionIcon,
   TriangleDownIcon,
 } from '@chakra-ui/icons'
+import { useAppSelector } from '../../../application/store'
+import { Box } from '@chakra-ui/react'
 
 const DashboardOverviewPage = () => {
+  const themeCurrentColorVariant = useAppSelector(
+    (state) => state.color_variant.currentColorVariant
+  )
   return (
     <div className="py-6 px-4 grid gap-6">
       <div className="grid grid-cols-4 gap-6">
@@ -95,7 +100,11 @@ const DashboardOverviewPage = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
-        <div className="card-bordered bg-sky-500 border-sky-500 shadow-md text-white px-4 py-4">
+        <Box
+          className="card-bordered shadow-md text-white px-4 py-4"
+          background={`${themeCurrentColorVariant}.500`}
+          borderColor={`${themeCurrentColorVariant}.500`}
+        >
           <div className="card-bordered-body flex flex-col md:flex-row items-center">
             <div className="w-40 h-40 flex justify-center items-center">
               <HappyPerson />
@@ -120,7 +129,7 @@ const DashboardOverviewPage = () => {
               </ul>
             </div>
           </div>
-        </div>
+        </Box>
         <div className="grid grid-cols-1 gap-6">
           <div className="card-bordered flex items-center">
             <div className="card-bordered-body flex-1 flex items-center">
@@ -175,7 +184,12 @@ const DashboardOverviewPage = () => {
                 alt="profile"
                 className="w-28 h-28 object-cover rounded-full border border-gray-300"
               /> */}
-              <Icon as={HiOutlineUserCircle} w={28} h={28} color="sky.500" />
+              <Icon
+                as={HiOutlineUserCircle}
+                w={28}
+                h={28}
+                color={`${themeCurrentColorVariant}.500`}
+              />
 
               <h1 className="text-2xl font-bold">Adam</h1>
             </div>

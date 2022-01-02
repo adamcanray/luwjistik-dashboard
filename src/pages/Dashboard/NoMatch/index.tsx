@@ -1,7 +1,11 @@
 import { Box, Button, Stack, Text } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
+import { useAppSelector } from '../../../application/store'
 
 const NoMatch = () => {
+  const themeCurrentColorVariant = useAppSelector(
+    (state) => state.color_variant.currentColorVariant
+  )
   return (
     <Stack
       direction="row"
@@ -17,7 +21,7 @@ const NoMatch = () => {
         <Button
           as={Link}
           to={{ pathname: `/dashboard` }}
-          colorScheme="sky"
+          colorScheme={themeCurrentColorVariant}
           marginTop="4"
           size="sm"
         >

@@ -1,7 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Layout, RequireAuth } from './components'
-import NoMatch from './components/NoMatch'
+import { ColorVariantPicker, Layout, NoMatch, RequireAuth } from './components'
 import ThemedSuspenseFallback from './components/ThemedSuspenseFallback'
 import { LogoutPage } from './pages'
 
@@ -14,6 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <Suspense fallback={<ThemedSuspenseFallback />}>
+        <ColorVariantPicker />
         <Routes>
           <Route path="/">
             <Route index element={<LoginPage />} />

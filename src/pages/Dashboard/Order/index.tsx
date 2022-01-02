@@ -84,6 +84,9 @@ const OrderPage = (): JSX.Element => {
   const orderListResponseFailure = useAppSelector(
     (state: RootState) => state.order.list.response.failure
   )
+  const themeCurrentColorVariant = useAppSelector(
+    (state) => state.color_variant.currentColorVariant
+  )
   const fetchOrderList = useCallback(() => {
     dispatch(order_action.orderList())
   }, [dispatch])
@@ -248,7 +251,9 @@ const OrderPage = (): JSX.Element => {
           <Text fontSize="xx-large" fontWeight="semibold">
             Table Orders
           </Text>
-          {orderListFlowRequest && <Spinner color="sky.500" size="md" />}
+          {orderListFlowRequest && (
+            <Spinner color={`${themeCurrentColorVariant}.500`} size="md" />
+          )}
         </Stack>
         <Stack direction="row" spacing="2" alignItems="center">
           <IconButton
@@ -262,7 +267,7 @@ const OrderPage = (): JSX.Element => {
           <Button
             onClick={onOpen}
             leftIcon={<AddIcon />}
-            colorScheme="sky"
+            colorScheme={themeCurrentColorVariant}
             variant="solid"
           >
             Create Order
@@ -291,7 +296,7 @@ const OrderPage = (): JSX.Element => {
                         placeholder="Consignee Name"
                         _focus={{
                           ring: '2',
-                          ringColor: 'sky.500',
+                          ringColor: `${themeCurrentColorVariant}.500`,
                         }}
                       />
                     </InputGroup>
@@ -316,7 +321,7 @@ const OrderPage = (): JSX.Element => {
                           placeholder="Consignee Number"
                           _focus={{
                             ring: '2',
-                            ringColor: 'sky.500',
+                            ringColor: `${themeCurrentColorVariant}.500`,
                           }}
                         />
                         <NumberInputStepper>
@@ -346,7 +351,7 @@ const OrderPage = (): JSX.Element => {
                         placeholder="Consignee Address"
                         _focus={{
                           ring: '2',
-                          ringColor: 'sky.500',
+                          ringColor: `${themeCurrentColorVariant}.500`,
                         }}
                       />
                     </InputGroup>
@@ -371,7 +376,7 @@ const OrderPage = (): JSX.Element => {
                           placeholder="Consignee Postal"
                           _focus={{
                             ring: '2',
-                            ringColor: 'sky.500',
+                            ringColor: `${themeCurrentColorVariant}.500`,
                           }}
                         />
                         <NumberInputStepper>
@@ -401,7 +406,7 @@ const OrderPage = (): JSX.Element => {
                         placeholder="Consignee Country"
                         _focus={{
                           ring: '2',
-                          ringColor: 'sky.500',
+                          ringColor: `${themeCurrentColorVariant}.500`,
                         }}
                       />
                     </InputGroup>
@@ -426,7 +431,7 @@ const OrderPage = (): JSX.Element => {
                         placeholder="Consignee City"
                         _focus={{
                           ring: '2',
-                          ringColor: 'sky.500',
+                          ringColor: `${themeCurrentColorVariant}.500`,
                         }}
                       />
                     </InputGroup>
@@ -451,7 +456,7 @@ const OrderPage = (): JSX.Element => {
                         placeholder="Consignee State"
                         _focus={{
                           ring: '2',
-                          ringColor: 'sky.500',
+                          ringColor: `${themeCurrentColorVariant}.500`,
                         }}
                       />
                     </InputGroup>
@@ -476,7 +481,7 @@ const OrderPage = (): JSX.Element => {
                         placeholder="Consignee Province"
                         _focus={{
                           ring: '2',
-                          ringColor: 'sky.500',
+                          ringColor: `${themeCurrentColorVariant}.500`,
                         }}
                       />
                     </InputGroup>
@@ -498,7 +503,7 @@ const OrderPage = (): JSX.Element => {
                         placeholder="Consignee Email"
                         _focus={{
                           ring: '2',
-                          ringColor: 'sky.500',
+                          ringColor: `${themeCurrentColorVariant}.500`,
                         }}
                       />
                     </InputGroup>
@@ -518,7 +523,7 @@ const OrderPage = (): JSX.Element => {
                           placeholder="Length"
                           _focus={{
                             ring: '2',
-                            ringColor: 'sky.500',
+                            ringColor: `${themeCurrentColorVariant}.500`,
                           }}
                         />
                         <NumberInputStepper>
@@ -543,7 +548,7 @@ const OrderPage = (): JSX.Element => {
                           placeholder="Width"
                           _focus={{
                             ring: '2',
-                            ringColor: 'sky.500',
+                            ringColor: `${themeCurrentColorVariant}.500`,
                           }}
                         />
                         <NumberInputStepper>
@@ -568,7 +573,7 @@ const OrderPage = (): JSX.Element => {
                           placeholder="Height"
                           _focus={{
                             ring: '2',
-                            ringColor: 'sky.500',
+                            ringColor: `${themeCurrentColorVariant}.500`,
                           }}
                         />
                         <NumberInputStepper>
@@ -593,7 +598,7 @@ const OrderPage = (): JSX.Element => {
                           placeholder="Weight"
                           _focus={{
                             ring: '2',
-                            ringColor: 'sky.500',
+                            ringColor: `${themeCurrentColorVariant}.500`,
                           }}
                         />
                         <NumberInputStepper>
@@ -618,7 +623,7 @@ const OrderPage = (): JSX.Element => {
                         placeholder="Payment Type"
                         _focus={{
                           ring: '2',
-                          ringColor: 'sky.500',
+                          ringColor: `${themeCurrentColorVariant}.500`,
                         }}
                       />
                     </InputGroup>
@@ -643,7 +648,7 @@ const OrderPage = (): JSX.Element => {
                         placeholder="Pickup Contact Name"
                         _focus={{
                           ring: '2',
-                          ringColor: 'sky.500',
+                          ringColor: `${themeCurrentColorVariant}.500`,
                         }}
                       />
                     </InputGroup>
@@ -670,7 +675,7 @@ const OrderPage = (): JSX.Element => {
                           placeholder="Pickup Contact Number"
                           _focus={{
                             ring: '2',
-                            ringColor: 'sky.500',
+                            ringColor: `${themeCurrentColorVariant}.500`,
                           }}
                         />
                         <NumberInputStepper>
@@ -700,7 +705,7 @@ const OrderPage = (): JSX.Element => {
                         placeholder="Pickup Address"
                         _focus={{
                           ring: '2',
-                          ringColor: 'sky.500',
+                          ringColor: `${themeCurrentColorVariant}.500`,
                         }}
                       />
                     </InputGroup>
@@ -725,7 +730,7 @@ const OrderPage = (): JSX.Element => {
                           placeholder="Pickup Postal"
                           _focus={{
                             ring: '2',
-                            ringColor: 'sky.500',
+                            ringColor: `${themeCurrentColorVariant}.500`,
                           }}
                         />
                         <NumberInputStepper>
@@ -755,7 +760,7 @@ const OrderPage = (): JSX.Element => {
                         placeholder="Pickup Country"
                         _focus={{
                           ring: '2',
-                          ringColor: 'sky.500',
+                          ringColor: `${themeCurrentColorVariant}.500`,
                         }}
                       />
                     </InputGroup>
@@ -780,7 +785,7 @@ const OrderPage = (): JSX.Element => {
                         placeholder="Pickup City"
                         _focus={{
                           ring: '2',
-                          ringColor: 'sky.500',
+                          ringColor: `${themeCurrentColorVariant}.500`,
                         }}
                       />
                     </InputGroup>
@@ -805,7 +810,7 @@ const OrderPage = (): JSX.Element => {
                         placeholder="Pickup State"
                         _focus={{
                           ring: '2',
-                          ringColor: 'sky.500',
+                          ringColor: `${themeCurrentColorVariant}.500`,
                         }}
                       />
                     </InputGroup>
@@ -830,7 +835,7 @@ const OrderPage = (): JSX.Element => {
                         placeholder="Pickup Province"
                         _focus={{
                           ring: '2',
-                          ringColor: 'sky.500',
+                          ringColor: `${themeCurrentColorVariant}.500`,
                         }}
                       />
                     </InputGroup>
@@ -847,7 +852,7 @@ const OrderPage = (): JSX.Element => {
                 <Button
                   type="submit"
                   variant="solid"
-                  colorScheme="sky"
+                  colorScheme={themeCurrentColorVariant}
                   leftIcon={<AddIcon />}
                   isLoading={orderCreateFlowRequest}
                 >

@@ -4,11 +4,13 @@ import createSageMiddleware from 'redux-saga'
 import saga from '../saga'
 import { login_reducer, logout_reducer } from '../saga/auth'
 import { order_reducer } from '../saga/order'
+import { color_variant_reducer } from '../saga/theme'
 
 const rootReducer = combineReducers({
   login: login_reducer.loginReducer,
   logout: logout_reducer.logoutReducer,
   order: order_reducer.orderReducer,
+  color_variant: color_variant_reducer.colorVariantReducer,
 })
 
 const sagaMiddleware = createSageMiddleware()

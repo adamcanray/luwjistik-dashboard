@@ -30,6 +30,9 @@ const LoginPage = (): JSX.Element => {
   const loginResponseFailure = useAppSelector(
     (state) => state.login.response.failure
   )
+  const themeCurrentColorVariant = useAppSelector(
+    (state) => state.color_variant.currentColorVariant
+  )
   const {
     register,
     handleSubmit,
@@ -83,7 +86,7 @@ const LoginPage = (): JSX.Element => {
                   placeholder="Email"
                   _focus={{
                     ring: '2',
-                    ringColor: 'sky.500',
+                    ringColor: `${themeCurrentColorVariant}.500`,
                   }}
                 />
               </InputGroup>
@@ -101,7 +104,7 @@ const LoginPage = (): JSX.Element => {
                 placeholder="Password"
                 _focus={{
                   ring: '2',
-                  ringColor: 'sky.500',
+                  ringColor: `${themeCurrentColorVariant}.500`,
                 }}
               />
               {errors.password && (
@@ -119,7 +122,7 @@ const LoginPage = (): JSX.Element => {
             <Button
               type="submit"
               variant="solid"
-              colorScheme="sky"
+              colorScheme={themeCurrentColorVariant}
               isLoading={loginFlowRequest}
             >
               Login

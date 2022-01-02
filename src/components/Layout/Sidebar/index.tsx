@@ -26,7 +26,6 @@ const Sidebar = () => {
       width={{ base: '0', md: '60' }}
       paddingX=""
       paddingY="6"
-      // backgroundColor="sky.500"
       borderRight="1px"
       borderColor="gray.300"
       backgroundColor="white"
