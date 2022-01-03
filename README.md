@@ -10,8 +10,10 @@
 ## Features, Helpers, etc:
 
 - Fully responsive layout
-- Model/Type declaration for all request and response (login, order)
+- Implement uncle-bob-architecture: Model layer (type/interface declatarion), Repository Layer (data source handler/infrastructure), Usecase Layer (bussines logic) and Delivery Layer (data store)
 - Extendable infrastructure to integrate with any protocol/data communication such as REST, gRPC, SOAP, GraphQL, etc.
+- Auth mechanism
+- Model/Type declaration for all request and response (login, order)
 - Login email and password form validation
 - Handling auto-generate valid md5 string, handled by auth core utils and login worker
 - Show message error when login failure (rare, but prepared)
